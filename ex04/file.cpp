@@ -6,7 +6,7 @@
 /*   By: side-boe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:47:27 by side-boe          #+#    #+#             */
-/*   Updated: 2025/11/13 15:57:57 by side-boe         ###   ########.fr       */
+/*   Updated: 2025/11/16 13:29:47 by side-boe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "file.hpp"
@@ -33,13 +33,18 @@ std::string File::getFile() const { return file; }
 std::string File::getFind() const { return find; }
 std::string File::getReplace() const { return replace; }
 
-void File::makenewfile() const
+void File::makeNewFile() const
 {
-	std::ifstream infile.is_open(file.c_str());
-	if (!infile.open())
+	std::ifstream infile(file.c_str());
+	if (!infile.is_open())
 	{
 		std::cout << "file does not exist or no permissions" << std::endl;
 		return;
 	}
-	std::ofstream outfile((file + ".replace".c_str());
+	std::ofstream outfile((file + ".replace").c_str());
+	if (!outfile.is_open())
+	{
+		std::cout << "cannot create output file" << std::endl;
+		return;
+	}
 }
