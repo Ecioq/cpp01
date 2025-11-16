@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-//#include <fsteam>
+#include <fstream>
+#include <sstream>
 
 class File {
 	public:
@@ -10,10 +11,13 @@ class File {
 		void setfind (const std::string &find);
 		void setreplace(const std::string &replace);
 		void readfile() const;
+		std::string readFileToString() const;
+		std::string replaceInString(const std::string &content) const;
 
-		std::string getfile() const;
-		std::string getfind() const;
-		std::string getreplace() const;
+
+		std::string getFile() const;
+		std::string getFind() const;
+		std::string getReplace() const;
 
 		void makeNewFile(void) const;
 	private:
@@ -21,3 +25,4 @@ class File {
 		std::string find;
 		std::string replace;
 };
+
