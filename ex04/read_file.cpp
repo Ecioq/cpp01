@@ -25,19 +25,19 @@ std::string File::readFileToString() const
 	 return buffer.str();
 }
 
-std::string File::replaceInString(const std::string &content) const
+std::string File::replaceInString(const std::string &wordReplace) const
 {
     std::string wordFind;
     size_t lastPos = 0;
     size_t pos = 0;
     
-    while ((pos = content.find(find, lastPos)) != std::string::npos)
+    while ((pos = wordReplace.find(find, lastPos)) != std::string::npos)
     {
-        wordFind += content.substr(lastPos, pos - lastPos);
+        wordFind += wordReplace.substr(lastPos, pos - lastPos);
         wordFind += replace;
         lastPos = pos + find.length();
     }
-    wordFind += content.substr(lastPos);
+    wordFind += wordReplace.substr(lastPos);
 	 std::ofstream outfile((file + ".replace").c_str());
     if (outfile.is_open())
     {
