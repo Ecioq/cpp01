@@ -36,8 +36,24 @@ void Harl::complain(std::string level)
 		std::cout << "wrong value: please enter 'DEBUG', 'INFO', 'WARNING' or 'ERROR'" << std::endl;
 		return;
 	}
-	for (; i != 3; i++)
-		(this->*functions[i + 1])();
+	switch (i)
+    {
+        case 0:
+            (this->*functions[0])();
+            [[fallthrough]];
+        case 1:
+            (this->*functions[1])();
+            [[fallthrough]];
+        case 2:
+            (this->*functions[2])();
+            [[fallthrough]];
+        case 3:
+            (this->*functions[3])();
+            break;
+
+        default:
+            break;
+}		
 }
 
 void Harl::debug(void)
