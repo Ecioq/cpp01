@@ -12,7 +12,7 @@ class File {
 		void setreplace(const std::string &replace);
 		void readfile() const;
 		std::string readFileToString() const;
-		std::string replaceInString(const std::string &content) const;
+		std::string replaceInString(const std::string &wordReplace) const;
 
 
 		std::string getFile() const;
